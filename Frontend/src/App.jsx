@@ -11,7 +11,7 @@ const App = () => {
     // Fetch all notes
     async function fetchedNotes() {
         try {
-            const response = await axios.get('http://localhost:3000/notes')
+            const response = await axios.get('https://notes-new-vv4m.onrender.com/notes')
             setnotes(response.data.notes)
         } catch (error) {
             console.error('Error fetching notes:', error)
@@ -25,7 +25,7 @@ const App = () => {
         const description = e.target.desc.value
 
         try {
-            await axios.post('http://localhost:3000/notes', {
+            await axios.post('https://notes-new-vv4m.onrender.com/notes', {
                 title: title,
                 description: description
             })
@@ -39,7 +39,7 @@ const App = () => {
     // Delete note
     async function deleteNote(id) {
         try {
-            await axios.delete(`http://localhost:3000/notes/${id}`)
+            await axios.delete(`https://notes-new-vv4m.onrender.com/notes/${id}`)
             fetchedNotes() // Refresh notes
         } catch (error) {
             console.error('Error deleting note:', error)
@@ -49,7 +49,7 @@ const App = () => {
     // Update note
     async function updateNote(id) {
         try {
-            await axios.patch(`http://localhost:3000/notes/${id}`, {
+            await axios.patch(`https://notes-new-vv4m.onrender.com/notes/${id}`, {
                 title: editTitle,
                 description: editDesc
             })
